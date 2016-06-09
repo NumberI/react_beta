@@ -9,7 +9,7 @@ var Loading = require('./Loading');
 
 function ConfirmBattle (props) {
   return props.isLoading === true
-    ? <Loading speed={900} text='Wait one moment' />
+    ? <Loading speed={300} text='Wait one moment' />
     : <MainContainer>
         <h1>Confirm Palyers</h1>
         <div className="col-sm-8 col-sm-offset-2">
