@@ -6,22 +6,22 @@ import UserDetailsWrapper from './UserDetailsWrapper';
 import MainContainer from './MainContainer';
 import Loading from './Loading';
 
-function ConfirmBattle (props) {
-  return props.isLoading === true
+function ConfirmBattle ({ isLoading, playersInfo, onInitiateBattle }) {
+  return isLoading === true
     ? <Loading speed={300} text='Wait one moment' />
     : <MainContainer>
         <h1>Confirm Palyers</h1>
         <div className="col-sm-8 col-sm-offset-2">
           <UserDetailsWrapper header='1'>
-            <UserDetails info={(props.playersInfo[0])} />
+            <UserDetails info={playersInfo[0]} />
           </UserDetailsWrapper>
           <UserDetailsWrapper header='2'>
-            <UserDetails info={(props.playersInfo[1])} />
+            <UserDetails info={playersInfo[1]} />
           </UserDetailsWrapper>
         </div>
         <div className="col-sm-8 col-sm-offset-2">
           <div className="col-sm-12" style={space}>
-            <button className="btn btn-lg btn-success" type='button' onClick={props.onInitiateBattle}>
+            <button className="btn btn-lg btn-success" type='button' onClick={onInitiateBattle}>
               Initiate Battle
             </button>
           </div>
