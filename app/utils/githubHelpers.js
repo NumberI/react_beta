@@ -24,7 +24,7 @@ function getPlayersData (player) {
         followers: player.followers,
         totalStars: totalStars
       }
-    )
+    ))
 }
 
 function calculateScores (players) {
@@ -36,7 +36,7 @@ function calculateScores (players) {
 
 export function getPlayersInfo (players) {
   return axios.all(players.map((username) => getUserInfo(username)))
-  .then((info) => info.map((user) => user.data;))
+  .then((info) => info.map((user) => user.data))
   .catch((err) => console.warn('Error in getPlayersInfo', err))
 };
 
