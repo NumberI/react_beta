@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import styles from '../styles';
+import { space } from '../styles';
 import { Link } from 'react-router';
 import UserDetails from './UserDetails';
 import UserDetailsWrapper from './UserDetailsWrapper';
@@ -8,7 +8,7 @@ import Loading from './Loading';
 
 function StartOver () {
   return (
-    <div className="col-sm-12" style={styles.space}>
+    <div className="col-sm-12" style={space}>
       <Link to='playerOne'>
         <button className="btn btn-lg btn-danger" type='button'>Start Over</button>
       </Link>

@@ -1,8 +1,8 @@
-var axios = require('axios');
+import axios from 'axios';
 
-var id = "32a588f947f4b88f36ea";
-var sec = "5048b4f8c8903bf5f6d64e6887825e7ad13437c8";
-var param = "?client_id=" + id + "&cient_secret="+ sec;
+const id = "32a588f947f4b88f36ea";
+const sec = "5048b4f8c8903bf5f6d64e6887825e7ad13437c8";
+const param = "?client_id=" + id + "&cient_secret="+ sec;
 
 function getUserInfo (username) {
   return axios.get('https://api.github.com/users/' + username + param)
@@ -36,26 +36,23 @@ function calculateScores (players) {
   ]
 }
 
-var helpers = {
-  getPlayersInfo: function (players) {
-    return axios.all(players.map(function (username) {
-      return getUserInfo(username);
-    })).then(function (info) {
-      return info.map(function (user) {
-        return user.data;
-      })
-    }).catch(function (err) {
-      console.warn('Error in getPlayersInfo', err);
+export function getPlayersInfo (players) {
+  return axios.all(players.map(function (username) {
+    return getUserInfo(username);
+  })).then(function (info) {
+    return info.map(function (user) {
+      return user.data;
     })
-  },
-  battle: function (players) {
-    var playerOneData = getPlayersData(players[0]);
-    var playerTwoData = getPlayersData(players[1]);
-    
-    return axios.all([playerOneData, playerTwoData])
-      .then(calculateScores)
-      .catch(function (err) {console.warn('Error in getPlayersInfo: ', err)})
-  }
+  }).catch(function (err) {
+    console.warn('Error in getPlayersInfo', err);
+  })
 };
 
-module.exports = helpers;
+export function battle (players) {
+  const playerOneData = getPlayersData(players[0]);
+  const playerTwoData = getPlayersData(players[1]);
+  
+  return axios.all([playerOneData, playerTwoData])
+    .then(calculateScores)
+    .catch(function (err) {console.warn('Error in getPlayersInfo: ', err)})
+};
