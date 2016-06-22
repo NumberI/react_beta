@@ -1,7 +1,7 @@
-var React = require('react');
-var ReactRouter = require('react-router');
-var Link = ReactRouter.Link;
-var MainContainer = require('./MainContainer');
+import React from 'react';
+import { Link } from 'react-router';
+import MainContainer from './MainContainer';
+
 
 function Home () {
   return (
@@ -15,4 +15,4 @@ function Home () {
   )
 };
 
-module.exports = Home;
+export default Home;
