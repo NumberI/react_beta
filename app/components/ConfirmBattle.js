@@ -40,6 +40,6 @@ ConfirmBattle.propTypes = {
   isLoading: PropTypes.bool.isfrom ,
   onInitiateBattle: PropTypes.func.isfrom ,
   playersInfo: PropTypes.array.isfrom 
-};
+}
 
 export default ConfirmBattle;
